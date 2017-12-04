@@ -1,29 +1,44 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ProductCard from './ProductCard'
 
-const ProductList = function(props) {
-  const { products, actions } = props;
-  const hasProducts = products.length > 0;
-  return (
-    <div>
-      <button onClick={() => actions.getProducts()}> Get Products </button>
+class ProductList extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    };
+  }
+
+  static propTypes = {
+    products: PropTypes.arrayOf(PropTypes.object),
+    actions: PropTypes.shape({})
+  }
+
+  static defaultProps = {
+    products: []
+  }
+
+  componentWillMount() {
+    this.props.actions.getProducts()
+  }
+
+  render() {
+    const { products, actions } = this.props;
+    const hasProducts = products.length > 0;
+
+    return (
       <div>
-      { hasProducts && 
-        products.map((product) => <ProductCard key={product.id} product={product} />)
-      }
+        <div>
+        { hasProducts && 
+          products.map((product) => <ProductCard key={product.id} product={product} />)
+        }
+        <button onClick={() => actions.getProducts()}> Load More </button>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-ProductList.propTypes = {
-  products: PropTypes.arrayOf(PropTypes.object),
-  actions: PropTypes.shape({})
-}
 
-ProductList.defaultProps = {
-  products: []
-}
 
 export default ProductList;

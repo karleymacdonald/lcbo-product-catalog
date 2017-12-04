@@ -3,7 +3,8 @@ import update from 'immutability-helper';
 export function fetchProductsSuccessHandler(state, action) {
   const { payload } = action;
   return update(state, {
-    products: { $merge: payload.result}
+    products: { $push: payload.result },
+    page: { $set: payload.pager.current_page }
   });
 }
 

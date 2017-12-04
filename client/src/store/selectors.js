@@ -1,0 +1,1 @@
+export const getNextPage = (state) => state.productList.page + 1;

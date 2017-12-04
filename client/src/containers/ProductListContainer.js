@@ -4,7 +4,7 @@ import * as actionCreators from '../modules/productList/actionCreators';
 import ProductList from '../components/ProductList';
 
 const mapStateToProps = (state) => ({
-  products: state.ProductList.products
+  products: state.productList.products
 });
 
 const mapDispatchToProps = (dispatch) => ({

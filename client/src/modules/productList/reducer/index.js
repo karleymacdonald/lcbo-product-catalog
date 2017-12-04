@@ -2,7 +2,8 @@ import { FETCH_PRODUCTS_SUCCESS, FETCH_PRODUCTS_ERROR } from '../constants';
 import { fetchProductsSuccessHandler, fetchProductsErrorHandler } from '../actionHandlers';
 
 const initialState = {
-  products: []
+  products: [],
+  page: 0
 }
 
 export default function reducer(state = initialState, action) {

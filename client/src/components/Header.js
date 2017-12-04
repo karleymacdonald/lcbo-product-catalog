@@ -1,9 +1,12 @@
 import React from 'react';
-import './Header.css';
+import Filter from './Filter';
 
 const Header = function(props) {
   return (
-    <div className="header-title"> Drynk </div>
+    <div>
+      <Filter />
+      <div className="header-title"> Drynk </div>
+    </div>
   );
 }
 
