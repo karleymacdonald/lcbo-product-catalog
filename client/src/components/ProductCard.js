@@ -33,7 +33,8 @@ const ProductCard = function(props) {
       return product.varietal
     } else if (product.tertiary_category) {
       return product.tertiary_category
-    }
+    } 
+    return "Product description not available"
   }
 
   return (

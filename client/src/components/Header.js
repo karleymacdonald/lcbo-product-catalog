@@ -1,5 +1,6 @@
 import React from 'react';
 import Filter from './Filter';
+import './Header.css';
 
 const Header = function(props) {
   return (
