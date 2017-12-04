@@ -15,10 +15,12 @@ const ProductCard = function(props) {
   const getInventory = (count) => {
     if (count > 0) {
       return (<div>
+        <i className="material-icons">done</i>
         <span className="inventory">In Stock</span>
       </div>);
     }
     return (<div>
+      <i className="material-icons">clear</i>
       <span className="inventory">Out of Stock</span>
     </div>);  }
 
