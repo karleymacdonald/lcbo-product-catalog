@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './ProductCard.css';
 
 const ProductCard = function(props) {
-  const { product } = props;
+  const { product, className } = props;
 
   const getPriceInDollars = (priceInCents) => {
     return (<div>
@@ -38,7 +38,7 @@ const ProductCard = function(props) {
   }
 
   return (
-    <div className="product-card">
+    <div className={[className, 'product-card'].join(' ')}>
       <img src={product.image_url} alt={product.name}/>
       <div>{product.name}</div>
       <div>{getDescription(product)}</div>

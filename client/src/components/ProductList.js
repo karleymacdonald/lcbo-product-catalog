@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCard';
+import './ProductList.css';
 
 class ProductList extends Component {
   constructor(props) {
@@ -25,15 +26,23 @@ class ProductList extends Component {
   render() {
     const { products, actions } = this.props;
     const hasProducts = products.length > 0;
-
+    const classMap = {
+      0: "primary-card",
+      1: "secondary-card",
+      2: "secondary-card"
+    };
     return (
-      <div>
-        <div>
+      <div className="product-container">
+        <div className="product-list">
         { hasProducts && 
-          products.map((product) => <ProductCard key={product.id} product={product} />)
+          products.map((product, index) => {
+
+            const className = classMap[index] ? classMap[index] : "standard-card";
+            return (<ProductCard className={className} key={product.id} product={product}/>);
+          })
         }
-        <button onClick={() => actions.getProducts()}> Load More </button>
         </div>
+        <button onClick={() => actions.getProducts()}> Load More </button>
       </div>
     );
   }
